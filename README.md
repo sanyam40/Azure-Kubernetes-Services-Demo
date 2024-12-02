@@ -1,4 +1,7 @@
 # Azure Kubernetes Service (AKS)
+This Repository showcase working of Azure Kubernetes Service (AKS) Deployment with a Single Tier Application.
+
+![ACR Workflows 1 of 1](https://github.com/user-attachments/assets/e7ed945a-895c-4f6c-831c-a2acfb8761e2)
 
 ## Steps to Deploy on AKS
 
