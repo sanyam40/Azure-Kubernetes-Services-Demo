@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-acr # Labels to identify the deployment
+  name: demo-acr # Name of the deployment
+spec:
+  # Deployment --> ReplicaSet --> Pod
+  replicas: 2 # Number of pods wanted all time (for high availability and auto healing)
+  selector:
+    matchLabels:
+      app: demo-acr # Selector to match the pods with the label 'app: demo-acr'
+  template:
+    metadata:
+      labels:
+        app: demo-acr # Labels to identify the pods
+    spec:
+      containers:
+      - image: prodxansrcoreacrci.azurecr.io/playgroundaks # Docker image to use
+        name: acr-demo # Name of the container
+        ports:
+        - containerPort: 3000 # Port that the container exposes
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        env:
+        - name: PORT
+          value: "3000"
+      imagePullSecrets:
+      - name: acr_credentials # Reference to the Docker registry secret for pulling the image
