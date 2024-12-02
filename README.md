@@ -10,19 +10,19 @@ This workflow diagram outlines an automated CI/CD for deploying containerized ap
 
 ### Workflow Descriptions
 
-**1.Development Stage**
+**1.Development Stage** :
 Developers commit code changes to the GitHub repository, initiating the automated pipeline.
 
-**2.Continuous Integration & Containerization**
+**2.Continuous Integration & Containerization** :
 Upon code push, GitHub Actions triggers a build process that creates a Docker image. The image is then securely pushed to Azure Container Registry (ACR) for deployment.
 
-**3.Infrastructure Deployment**
+**3.Infrastructure Deployment** :
 Terraform scripts provision the Azure infrastructure, including Kubernetes clusters, ensuring an automated, repeatable, and scalable setup.
 
-**4.Kubernetes Deployment**
+**4.Kubernetes Deployment** :
 The Kubernetes cluster fetches the Docker image from ACR and deploys it as pods, creating scalable and resilient microservices.
 
-**5.Load Balancing & Traffic Management**
+**5.Load Balancing & Traffic Management** :
 Traffic is managed through an Azure Load Balancer, distributing requests evenly across pods, ensuring high availability and reliability. The external IP is exposed for seamless access.
 
 
