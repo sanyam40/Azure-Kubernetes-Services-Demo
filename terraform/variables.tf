@@ -12,7 +12,7 @@ variable "tenant_id" {
 # Resources Group Variables
 variable "resource_group_name" {
   type        = string
-  default     = "delete-me-aks"
+  default     = "sanyam-aks"
   description = "The name of the resource group in which to create the resources"
 }
 
@@ -32,4 +32,11 @@ variable "location" {
   type        = string
   default     = "Central india"
   description = "The location/region where the resources will be created"
+}
+
+# AKS Cluster Variables
+variable "cluster_name" {
+  type        = string
+  default     = "sanyam-aks"
+  description = "The name of the AKS cluster"
 }
