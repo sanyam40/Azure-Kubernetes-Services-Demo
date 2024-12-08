@@ -10,6 +10,8 @@ az aks create \
     --generate-ssh-keys
 ```
 
+### Method 2 : Using Terraform Scripts
+
 ## 2. Configure Azure AKS Credentials
 
 Configure the `kubectl` context to use an Azure Kubernetes Service (AKS) cluster:
