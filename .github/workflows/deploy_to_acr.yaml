@@ -45,34 +45,6 @@ jobs:
         with:
           push: true
           tags: |
-            ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaks:${{ env.VERSION_TAG }}
-            ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaks:latest
+            ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:${{ env.VERSION_TAG }}
+            ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:latest
           file: ./Dockerfile
-      
-      - name: ☸️ Set AKS Context
-        uses: Azure/aks-set-context@v1
-        with: 
-          creds: ${{ secrets.AZURE_CREDENTIALS }}  
-          resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          cluster-name: ${{ secrets.AKS_CLUSTER_NAME }}     
-
-      - name: 🔑 Create ACR Registry Secret in Kubernetes
-        uses: Azure/k8s-create-secret@v1.1
-        with:
-          namespace: default
-          secret-type: docker-registry
-          secret-name: acr_credentials
-          container-registry-url: ${{ secrets.DEFAULT_REGISTRY_SERVER }}
-          container-registry-username: ${{ secrets.DEFAULT_REGISTRY_USERNAME }}
-          container-registry-password: ${{ secrets.DEFAULT_REGISTRY_PASSWORD }}
-      
-      - name: 🚀 Deploy to Kubernetes Cluster
-        uses: Azure/k8s-deploy@v1
-        with:
-          action: deploy
-          manifests: |
-            k8s-specifications/demo-deployment.yaml
-            k8s-specifications/demo-service.yaml
-          images: |
-            ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaks:${{ env.VERSION_TAG }}
-          imagepullsecrets: acr_credentials

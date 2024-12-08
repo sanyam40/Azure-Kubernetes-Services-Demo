@@ -40,3 +40,16 @@ variable "cluster_name" {
   default     = "sanyam-aks"
   description = "The name of the AKS cluster"
 }
+
+variable "acr_name" {
+  type        = string
+  default     = "sanyamacr"
+  description = "The name of the Azure Container Registry"
+}
+
+variable "acr_sku" {
+  type        = string
+  default     = "Standard"
+  description = "The SKU of the Azure Container Registry"
+
+}
