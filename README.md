@@ -67,7 +67,7 @@ terraform apply
 
 ### 2. Configure Azure Container Registry (ACR) Credentials
 
-To authenticate Github Actions Workflow ![Description](.github/workflows/deploy_to_acr.yaml) with Azure Container Registry : 
+To authenticate Github Actions Workflow [Description](.github/workflows/deploy_to_acr.yaml) with Azure Container Registry :
 
 #### 2.1 Copy ACR Credentials from Azure Portal
 
