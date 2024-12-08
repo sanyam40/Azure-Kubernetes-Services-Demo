@@ -160,3 +160,11 @@ Wait for the external IP to be assigned to the service.
 Access the application after a few minutes using the external IP:
 
 ![Access Application](assets/deploy.png)
+
+### 10 . Terraform Destroy (To Clean Up Resources)
+
+To clean up the Azure resources created by Terraform, run:
+
+```sh
+terraform destroy
+```
