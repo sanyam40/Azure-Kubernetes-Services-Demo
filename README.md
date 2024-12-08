@@ -97,70 +97,66 @@ Navigate to the GitHub repository > Actions > Deploy to ACR
 
 ### 5. Set the Kubernetes Context
 
-### 6. Configure Azure AKS Credentials
-
 Configure the `kubectl` context to use an Azure Kubernetes Service (AKS) cluster:
 
 ```bash
 az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>
+```
 
+Example:
 
-Exmple : az aks get-credentials --resource-group delete-me --name aks-demo
-
+```bash
 az aks get-credentials --resource-group delete-me --name aks-demo
 ```
 
-#### 6.1. Check Current Context
+#### 5.1 Check Current Context
 
 Verify the current context being used by `kubectl`:
 
 ```bash
 kubectl config current-context
-
 ```
 
 ![Check Context](assets/aks-1.png)
 
-### 7. Create Docker Registry Secret
+### 6. Create Docker Registry Secret
 
 Create a Docker registry secret to pull images from a private repository:
 
 ```bash
 kubectl create secret docker-registry regcred --docker-server=<server> --docker-username=<username> --docker-password=<password>
-
 ```
 
-### 8. Deploy the Application to AKS
+### 7. Deploy the Application to AKS
 
-run the following command to deploy the application to AKS:
+Run the following commands to deploy the application to AKS:
 
 ```bash
-
 kubectl apply -f demo-deployment.yaml
-
 ```
 
 ```bash
 kubectl apply -f demo-service.yaml
-
 ```
 
-![Deploy Application](assets/aks-deploy.png)
+![Deploy Application](assets/aks-apply.png)
 
-### 9. Verify the Deployment
+### 8. Verify the Deployment
 
 Check the deployment status and verify the pods:
 
 ```bash
-
 kubectl get all
-
 ```
 
 ![Verify Deployment](assets/aks-info.png)
 
-waiting for the external IP to be assigned to the service.
+Wait for the external IP to be assigned to the service.
 
 ![External IP](assets/aks-info-2.png)
 
-### 10. Access the Application
+### 9. Access the Application
+
+Access the application after a few minutes using the external IP:
+
+![Access Application](assets/deploy.png)
