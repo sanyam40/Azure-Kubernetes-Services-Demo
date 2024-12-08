@@ -13,7 +13,7 @@ metadata:
   labels:
     app: demo-aks  # Labels to identify the service
 spec:
-  loadBalancerIP: 20.235.209.139
+  loadBalancerIP: 4.188.94.132
   type: LoadBalancer  # Type of the service (NodePort, ClusterIP, LoadBalancer)
   ports:
     - name: "demo-aks-service"  # Name of the port
