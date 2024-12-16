@@ -26,9 +26,11 @@ jobs:
 
       - name: 📦 Install Dependencies
         run: npm install
+        working-directory: ./frontend
 
       - name: Build
         run: npm run build
+        working-directory: ./frontend
 
       - name: 🐳 Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -40,11 +42,11 @@ jobs:
           username: ${{ secrets.DEFAULT_REGISTRY_USERNAME }}
           password: ${{ secrets.DEFAULT_REGISTRY_PASSWORD }}
 
-      - name: 📤Build and push container image to registry
+      - name: 📤 Build and push container image to registry
         uses: docker/build-push-action@v6
         with:
           push: true
           tags: |
             ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:${{ env.VERSION_TAG }}
             ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:latest
-          file: ./Dockerfile
+          file: ./frontend/Dockerfile
