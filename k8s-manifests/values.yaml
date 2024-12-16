@@ -1,0 +1,26 @@
+app:
+  name: demo-aks
+
+replicas: 2
+
+image:
+  repository: devsanyamacr.azurecr.io/playgroundaksfe
+  tag: latest
+  pullSecret: regcred
+
+container:
+  name: acr-demo
+  port: 3000
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+
+service:
+  type: LoadBalancer
+  name: demo-aks-service
+  port: 80
