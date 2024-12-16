@@ -7,9 +7,6 @@ COPY package*.json ./
 # Clear npm cache and update npm before installing dependencies
 RUN npm cache clean --force && npm install -g npm@latest
 
-# Verify the integrity of package.json files
-RUN npm install --package-lock-only
-
 RUN npm install
 
 COPY . .
