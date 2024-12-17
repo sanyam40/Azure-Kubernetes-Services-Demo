@@ -50,3 +50,4 @@ jobs:
             ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:${{ env.VERSION_TAG }}
             ${{ secrets.DEFAULT_REGISTRY_SERVER }}/playgroundaksfe:latest
           file: ./frontend/Dockerfile
+          context: ./frontend
