@@ -138,7 +138,8 @@ helm install <release-name> <chart-name>
 Example:
 
 ```bash
-helm install demo-aks-helm ./k8s-manifests```
+helm install demo-aks-helm ./k8s-manifests
+```
 
 ![Deploy Application](assets/helm-1.png)
 
