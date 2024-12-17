@@ -1,0 +1,6 @@
+---
+  releases:
+    - name: demo-aks-helm
+      chart: ./k8s-manifests
+      namespace: default
+      installed: true # set to false to delete the release
