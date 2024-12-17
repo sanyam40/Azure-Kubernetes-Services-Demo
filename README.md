@@ -127,19 +127,20 @@ Create a Docker registry secret to pull images from a private repository:
 kubectl create secret docker-registry regcred --docker-server=<server> --docker-username=<username> --docker-password=<password>
 ```
 
-### 7. Deploy the Application to AKS
+### 7. Run Helm Chart to Deploy the Application on AKS
 
 Run the following commands to deploy the application to AKS:
 
 ```bash
-kubectl apply -f demo-deployment.yaml
+helm install <release-name> <chart-name>
 ```
+
+Example:
 
 ```bash
-kubectl apply -f demo-service.yaml
-```
+helm install demo-aks-helm ./k8s-manifests```
 
-![Deploy Application](assets/aks-apply.png)
+![Deploy Application](assets/helm-1.png)
 
 ### 8. Verify the Deployment
 
