@@ -1,4 +1,4 @@
-# Azure Kubernetes Service (AKS)
+# AKS Helm Deployment Demo (AKS)
 
 This repository showcases the deployment of a single-tier application using Azure Kubernetes Service (AKS).
 
